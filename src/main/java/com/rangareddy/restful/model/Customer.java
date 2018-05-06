@@ -1,5 +1,7 @@
 package com.rangareddy.restful.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Customer {
 	private int id;
 	private String firstname;
@@ -11,6 +13,7 @@ public class Customer {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
+		String s="/audit_item?locations.id=18173";
 	}
 	
 	// id
