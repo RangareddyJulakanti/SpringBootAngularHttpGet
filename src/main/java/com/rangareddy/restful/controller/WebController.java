@@ -23,6 +23,7 @@ public class WebController {
 	        put(1, new Customer(1, "Raj", "Kiran", 24));
 	        put(2, new Customer(2, "Ranga", "Reddy", 30));
 	        put(3, new Customer(3, "Hari", "Krishna", 31));
+			put(4, new Customer(4, "Raja", "Ram", 31));
 	    }
 	};
 	private Map<Integer, Student> studentMap = new HashMap<Integer, Student>(){
@@ -31,11 +32,16 @@ public class WebController {
 			put(1, new Student("1","Ranga"));
 			put(2, new Student("2","Raju"));
 			put(3, new Student("3","Chiru"));
+			put(4, new Student("3","Chiru"));
+		//	put(4, new Student("3","Chiru"));
+		//	put(5, new Student("3","Chiru"));
 		}
 	};
-	
 	@GetMapping(value="/customer",  produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Customer> getCustomers(){
+
+
+		System.out.println("customer");
 		List<Customer> results = customers.entrySet().stream()
 									.map(entry ->entry.getValue())
 									.collect(Collectors.toList());
@@ -43,6 +49,8 @@ public class WebController {
 	}
 	@GetMapping(value="/student",  produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Student> getStudents(){
+
+		//System.out.println("students info printing");
 		List<Student> results = studentMap.entrySet().stream()
 				.map(entry ->entry.getValue())
 				.collect(Collectors.toList());
